@@ -53,7 +53,8 @@ const gameModerator = (function() {
             gameOver = true
         }
     }
-    return {makeMove, getTurn, endTurn}
+    const getGameStatus = () => {return gameOver}
+    return {makeMove, getTurn, endTurn, getGameStatus}
 })()
 
 // Funciton factory for players
@@ -67,68 +68,116 @@ function player(name, mark) {
     return {getName, getMark}
 }
 
+const player1 = player("Samuel", "X")
+const player2 = player("Andrew", "O")
 
 
 
 
 const gameView = (function() {
     const body = document.querySelector("body")
-    const gameBoard = document.createElement("div")
-    gameBoard.classList.add("game-board")
-    body.appendChild(gameBoard)
+    const gameMenu = document.createElement("div")
+    gameMenu.classList.add("game-menu")
+    body.appendChild(gameMenu)
+
+
+
+
+    const startBtn = document.createElement("button")
+    startBtn.textContent = "START GAME"
+    gameMenu.appendChild(startBtn)
+
+    const gameModeDisplay = document.createElement("div")
+    gameModeDisplay.classList.add("game-mode-display")
+    gameModeDisplay.textContent = "Game Selection:"
+    gameMenu.appendChild(gameModeDisplay)
+
+    const practiceModeBtn = document.createElement("button")
+    practiceModeBtn.textContent = "PRACTICE"
+    gameModeDisplay.appendChild(practiceModeBtn)
+
+    const multiplayerModeBtn = document.createElement("button")
+    multiplayerModeBtn.textContent = "VS PLAYER"
+    gameModeDisplay.appendChild(multiplayerModeBtn)
+
+    const computerModeBtn = document.createElement("button")
+    computerModeBtn.textContent = "VS COMPUTER"
+    gameModeDisplay.appendChild(computerModeBtn)
+
+    const announcementDisplay = document.createElement("div")
+    announcementDisplay.classList.add("announcement-display")
+    announcementDisplay.textContent = "Select game mode and press START to play"
+    gameMenu.appendChild(announcementDisplay)
+
+
+
+
+
+
+    const gameBoardDisplay = document.createElement("div")
+    gameBoardDisplay.classList.add("game-board")
+    body.appendChild(gameBoardDisplay)
 
     const topLeft = document.createElement("div")
-    topLeft.classList.add("top-left")
-    topLeft.textContent = "X"
-    gameBoard.appendChild(topLeft)
+    topLeft.classList.add("top-left", "white-grid")
+    topLeft.addEventListener("click", () => {placeMark(topLeft, 0)})
+    gameBoardDisplay.appendChild(topLeft)
 
     const topCenter = document.createElement("div")
-    topCenter.classList.add("top-center")
-    topCenter.textContent = "X"
-    gameBoard.appendChild(topCenter)
+    topCenter.classList.add("top-center", "white-grid")
+    topCenter.addEventListener("click", () => {placeMark(topCenter, 1)})
+    gameBoardDisplay.appendChild(topCenter)
 
     const topRight = document.createElement("div")
-    topRight.classList.add("top-right")
-    topRight.textContent = "X"
-    gameBoard.appendChild(topRight)
+    topRight.classList.add("top-right", "white-grid")
+    topRight.addEventListener("click", () => {placeMark(topRight, 2)})
+    gameBoardDisplay.appendChild(topRight)
 
     const centerLeft = document.createElement("div")
-    centerLeft.classList.add("center-left")
-    centerLeft.textContent = "X"
-    gameBoard.appendChild(centerLeft)
+    centerLeft.classList.add("center-left", "white-grid")
+    centerLeft.addEventListener("click", () => {placeMark(centerLeft, 3)})
+    gameBoardDisplay.appendChild(centerLeft)
 
     const centerCenter = document.createElement("div")
-    centerCenter.classList.add("center")
-    centerCenter.textContent = "X"
-    gameBoard.appendChild(centerCenter)
+    centerCenter.classList.add("center", "white-grid")
+    centerCenter.addEventListener("click", () => {placeMark(centerCenter, 4)})
+    gameBoardDisplay.appendChild(centerCenter)
 
     const centerRight = document.createElement("div")
-    centerRight.classList.add("center-right")
-    centerRight.textContent = "X"
-    gameBoard.appendChild(centerRight)
+    centerRight.classList.add("center-right", "white-grid")
+    centerRight.addEventListener("click", () => {placeMark(centerRight, 5)})
+    gameBoardDisplay.appendChild(centerRight)
 
     const bottomLeft = document.createElement("div")
-    bottomLeft.classList.add("bottom-left")
-    bottomLeft.textContent = "X"
-    gameBoard.appendChild(bottomLeft)
+    bottomLeft.classList.add("bottom-left", "white-grid")
+    bottomLeft.addEventListener("click", () => {placeMark(bottomLeft, 6)})
+    gameBoardDisplay.appendChild(bottomLeft)
 
     const bottomCenter = document.createElement("div")
-    bottomCenter.classList.add("bottom-center")
-    bottomCenter.textContent = "X"
-    gameBoard.appendChild(bottomCenter)
+    bottomCenter.classList.add("bottom-center", "white-grid")
+    bottomCenter.addEventListener("click", () => {placeMark(bottomCenter, 7)})
+    gameBoardDisplay.appendChild(bottomCenter)
 
     const bottomRight = document.createElement("div")
-    bottomRight.classList.add("bottom-right")
-    bottomRight.textContent = "X"
-    gameBoard.appendChild(bottomRight)
+    bottomRight.classList.add("bottom-right", "white-grid")
+    bottomRight.addEventListener("click", () => {placeMark(bottomRight, 8)})
+    gameBoardDisplay.appendChild(bottomRight)
+
+    const placeMark = (element, index) => {
+        if (!gameModerator.getGameStatus()) {
+            gameModerator.makeMove(index)
+            console.log(gameBoard.getGameBoard()[index])
+            element.textContent = `${gameBoard.getGameBoard()[index]}`
+        }
+    }
+    return {placeMark}
 })()
 
 
 
 
 
-//const player1 = player("Samuel", "X")
-//const player2 = player("Andrew", "O")
+
 
 
 
