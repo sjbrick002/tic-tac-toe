@@ -1,0 +1,182 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    background: center no-repeat url(https://i.imgur.com/R1yLsdt.png) black;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-board {
+    min-width: 500px;
+    min-height: 500px;
+    /*background-color: black;*/
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "top-left top-center top-right"
+        "center-left center-center center-right"
+        "bottom-left bottom-center bottom-right";
+}
+
+.top-left {
+    grid-area: top-left;
+    border-right: 5px solid red;
+    border-bottom: 5px solid red; 
+    box-shadow: 15px 0px 5px -5px red, 0px 15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-center {
+    grid-area: top-center;
+    border-left: 5px solid red;
+    border-bottom: 5px solid red;
+    border-right: 5px solid red;
+    box-shadow: -15px 0px 5px -5px red, 15px 0px 5px -5px red, 0px 15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-right {
+    grid-area: top-right;
+    border-left: 5px solid red;
+    border-bottom: 5px solid red;
+    box-shadow: -15px 0px 5px -5px red, 0px 15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center-left {
+    grid-area: center-left;
+    border-top: 5px solid red;
+    border-right: 5px solid red;
+    border-bottom: 5px solid red;
+    box-shadow: 0px -15px 5px -5px red, 15px 0px 5px -5px red, 0px 15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center {
+    grid-area: center-center;
+    border: 5px solid red;
+    box-shadow: 0px 0px 5px 10px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.center-right {
+    grid-area: center-right;
+    border-top: 5px solid red;
+    border-left: 5px solid red;
+    border-bottom: 5px solid red;
+    box-shadow: -15px 0px 5px -5px red, 0px -15px 5px -5px red, 0px 15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bottom-left {
+    grid-area: bottom-left;
+    border-top: 5px solid red;
+    border-right: 5px solid red;
+    box-shadow: 15px 0px 5px -5px red, 0px -15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bottom-center {
+    grid-area: bottom-center;
+    border-left: 5px solid red;
+    border-top: 5px solid red;
+    border-right: 5px solid red;
+    box-shadow: -15px 0px 5px -5px red, 0px -15px 5px -5px red, 15px 0px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bottom-right {
+    grid-area: bottom-right;
+    border-left: 5px solid red;
+    border-top: 5px solid red;
+    box-shadow: -15px 0px 5px -5px red, 0px -15px 5px -5px red;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    color: red;
+    font-size: 10em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
